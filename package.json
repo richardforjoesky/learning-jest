@@ -1,0 +1,26 @@
+{
+  "name": "learning-unit-testing",
+  "version": "1.0.0",
+  "description": "learning about unit testing",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "vitest --globals"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richardforjoesky/learning-unit-testing.git"
+  },
+  "author": "Richard Forjoe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/richardforjoesky/learning-unit-testing/issues"
+  },
+  "homepage": "https://github.com/richardforjoesky/learning-unit-testing#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "vitest": "^0.31.0"
+  }
+}
