@@ -5,7 +5,9 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "test": "vitest --globals"
+    "test": "vitest --run --reporter verbose --coverage",
+    "test:watch": "vitest",
+    "test:global": "vitest --run --reporter verbose --globals"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,7 @@
     "express": "^4.18.2"
   },
   "devDependencies": {
+    "@vitest/coverage-c8": "^0.31.0",
     "vitest": "^0.31.0"
   }
 }

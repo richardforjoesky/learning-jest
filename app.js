@@ -1,11 +1,6 @@
 import express from 'express';
 
-import { transformToNumber } from './src/util/numbers.js';
-import {
-  validateNumber,
-  validateStringNotEmpty,
-} from './src/util/validation.js';
-import { add } from './src/math.js';
+import { calculateResult, generateResultText } from './src/util/resultText.js';
 import { extractNumbers, extractResultQueryParam } from './src/parser.js';
 
 const app = express();
@@ -13,14 +8,10 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
+    // get result
   const result = extractResultQueryParam(req);
-  let resultText = '';
+  let resultText = generateResultText(result);
 
-  if (result === 'invalid') {
-    resultText = 'Invalid input. You must enter valid numbers.';
-  } else if (result !== 'no-calc') {
-    resultText = 'Result: ' + result;
-  }
   const htmlContent = `
     <html>
       <head>
@@ -63,23 +54,15 @@ app.get('/', (req, res) => {
 });
 
 app.post('/calculate', (req, res) => {
-  let result = '';
 
+  // get input
   const numberInputs = extractNumbers(req);
-  const numbers = [];
-  try {
-    for (const numberInput of numberInputs) {
-      validateStringNotEmpty(numberInput);
-      const number = transformToNumber(numberInput);
-      validateNumber(number);
-      numbers.push(number);
-    }
-    result = add(numbers).toString();
-  } catch (error) {
-    result = error.message;
-  }
+  
+  const result = calculateResult(numberInputs)
 
-  res.redirect('/?result=' + result);
+  const resultText = generateResultText(result);
+
+  res.redirect('/?result=' + resultText);
 });
 
 app.listen(3000);
