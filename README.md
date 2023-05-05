@@ -1,2 +1,2 @@
-# learning-jest
-Repo for Deeper learning of Jest
+# learning-unit-testing
+Repo for Deeper learning of unit testing
