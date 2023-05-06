@@ -1,6 +1,6 @@
 import express from 'express';
 
-import { calculateResult, generateResultText } from './src/util/resultText.js';
+import { calculateResult, generateResultText } from './util/resultText.js';
 import { extractNumbers, extractResultQueryParam } from './src/parser.js';
 
 const app = express();
