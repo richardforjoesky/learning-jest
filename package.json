@@ -5,7 +5,7 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "test": "vitest --run --reporter verbose --coverage",
+    "test": "vitest --run --reporter verbose --coverage --globals",
     "test:watch": "vitest",
     "test:global": "vitest --run --reporter verbose --globals"
   },
@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/richardforjoesky/learning-unit-testing#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0"
   },
   "devDependencies": {
     "@vitest/coverage-c8": "^0.31.0",
